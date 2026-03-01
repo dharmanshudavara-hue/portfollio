@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import fahhSound from "../assets/fahh.mp3";
 
 const DrawOutlineButton = ({ children, className = "", to, onClick, ...rest }) => {
     const Component = to ? Link : "button";
-    const [clickCount, setClickCount] = useState(0);
+    const audioRef = useRef(null);
 
     const handleClick = (e) => {
-        setClickCount((prev) => prev + 1);
+        if (!audioRef.current) {
+            audioRef.current = new Audio(fahhSound);
+        }
+        audioRef.current.currentTime = 0;
+        audioRef.current.play();
+
         if (onClick) {
             onClick(e);
         }
@@ -20,20 +26,6 @@ const DrawOutlineButton = ({ children, className = "", to, onClick, ...rest }) =
             className={`draw-outline-btn ${className}`}
         >
             <span>{children}</span>
-
-            {/* Hidden iframe that re-renders on click to trigger the sound */}
-            {clickCount > 0 && (
-                <iframe
-                    key={clickCount}
-                    width="0"
-                    height="0"
-                    frameBorder="no"
-                    scrolling="no"
-                    src="https://quicksounds.com/sound/22305/fahhh"
-                    style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
-                    allow="autoplay"
-                ></iframe>
-            )}
 
             {/* TOP */}
             <span className="outline-top" />

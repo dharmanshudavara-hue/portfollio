@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
     motion,
@@ -6,7 +6,7 @@ import {
     useScroll,
     useTransform,
 } from "framer-motion";
-import { FiArrowRight, FiMapPin, FiBriefcase, FiArrowUpRight } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import DrawOutlineButton from "../components/DrawOutlineButton.jsx";
 import { AnimatedText } from "../components/ui/AnimatedText.jsx";
 
@@ -224,7 +224,6 @@ const SkillItem = ({ title, subtitle, meta }) => {
             </div>
             <div className="skill-meta">
                 <p>{meta}</p>
-                <FiArrowUpRight className="skill-icon" />
             </div>
         </motion.div>
     );

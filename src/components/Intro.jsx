@@ -4,27 +4,60 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Intro({ onComplete }) {
     const [isExiting, setIsExiting] = useState(false);
     const videoRef = useRef(null);
+    const audioRef = useRef(null);
+
+    // 🎬 Fade out audio smoothly
+    const fadeOutAudio = () => {
+        if (!audioRef.current) return;
+
+        const audio = audioRef.current;
+        let volume = audio.volume;
+
+        const fade = setInterval(() => {
+            if (volume > 0.05) {
+                volume -= 0.05;
+                audio.volume = volume;
+            } else {
+                audio.volume = 0;
+                audio.pause();
+                clearInterval(fade);
+            }
+        }, 50);
+    };
 
     const handleVideoEnd = () => {
         setIsExiting(true);
+        fadeOutAudio();
+
         setTimeout(() => {
             onComplete();
-        }, 1000); // 1-second fade out
+        }, 1000); // Matches fade animation
     };
 
     useEffect(() => {
+        // 🎥 Play video
         if (videoRef.current) {
-            videoRef.current.defaultMuted = true;
             videoRef.current.muted = true;
+            videoRef.current.play().catch(() => {
+                handleVideoEnd();
+            });
+        }
 
-            const playPromise = videoRef.current.play();
-            if (playPromise !== undefined) {
-                playPromise.catch((error) => {
-                    console.error("Autoplay prevented or video failed to load:", error);
-                    // If video fails to play, skip the intro so we don't block the site
-                    handleVideoEnd();
+        // 🎵 Play intro sound
+        if (audioRef.current) {
+            const audio = audioRef.current;
+            audio.volume = 0.6; // Adjust volume here (0–1)
+
+            const playAudio = () => {
+                audio.play().catch(() => {
+                    console.log("Autoplay blocked, waiting for user interaction.");
                 });
-            }
+            };
+
+            playAudio();
+
+            // Fallback: play on first user click
+            window.addEventListener("click", playAudio, { once: true });
         }
     }, []);
 
@@ -37,6 +70,7 @@ export default function Intro({ onComplete }) {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
+                    {/* 🎥 Intro Video */}
                     <video
                         ref={videoRef}
                         className="intro-video"
@@ -47,16 +81,13 @@ export default function Intro({ onComplete }) {
                         onEnded={handleVideoEnd}
                         onError={handleVideoEnd}
                     />
-                    {/* Hidden audio iframe to play the requested sound */}
-                    <iframe
-                        width="0"
-                        height="0"
-                        frameBorder="no"
-                        scrolling="no"
-                        src="https://quicksounds.com/sound/22305/fahhh"
-                        style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
-                        allow="autoplay"
-                    ></iframe>
+
+                    {/* 🎵 Background Intro Audio */}
+                    <audio
+                        ref={audioRef}
+                        src="/intro-sound.mp3"
+                        preload="auto"
+                    />
                 </motion.div>
             )}
         </AnimatePresence>
