@@ -12,7 +12,7 @@ import { AnimatedText } from "../components/ui/AnimatedText.jsx";
 
 const SECTION_HEIGHT = 1500;
 
-/* ========================= HOME PAGE ========================= */
+/*  HOME PAGE  */
 export default function Home() {
     return (
         <>
@@ -24,7 +24,7 @@ export default function Home() {
     );
 }
 
-/* ========================= NAV ========================= */
+/*  NAV  */
 const Nav = () => {
     return (
         <nav className="nav">
@@ -43,7 +43,7 @@ const Nav = () => {
     );
 };
 
-/* ========================= HERO ========================= */
+/*  HERO  */
 const Hero = () => {
     return (
         <div
@@ -102,7 +102,7 @@ const CenterImage = () => {
     );
 };
 
-/* ========================= PARALLAX IMAGES ========================= */
+/* PARALLAX IMAGES */
 const ParallaxImages = () => {
     return (
         <div className="parallax-container">
@@ -169,7 +169,7 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
     );
 };
 
-/* ========================= SKILLS SECTION ========================= */
+/*  SKILLS SECTION  */
 const Skills = () => {
     return (
         <section id="my-skills" className="skills-section">
@@ -229,7 +229,7 @@ const SkillItem = ({ title, subtitle, meta }) => {
     );
 };
 
-/* ========================= FOOTER ========================= */
+/*  FOOTER  */
 const Footer = () => {
     return (
         <footer className="footer">
