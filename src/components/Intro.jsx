@@ -6,7 +6,7 @@ export default function Intro({ onComplete }) {
     const videoRef = useRef(null);
     const audioRef = useRef(null);
 
-    // 🎬 Fade out audio smoothly
+    
     const fadeOutAudio = () => {
         if (!audioRef.current) return;
 
@@ -35,7 +35,7 @@ export default function Intro({ onComplete }) {
     };
 
     useEffect(() => {
-        // 🎥 Play video
+        
         if (videoRef.current) {
             videoRef.current.muted = true;
             videoRef.current.play().catch(() => {
@@ -43,7 +43,7 @@ export default function Intro({ onComplete }) {
             });
         }
 
-        // 🎵 Play intro sound
+       
         if (audioRef.current) {
             const audio = audioRef.current;
             audio.volume = 0.6; // Adjust volume here (0–1)
@@ -70,7 +70,7 @@ export default function Intro({ onComplete }) {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
-                    {/* 🎥 Intro Video */}
+                    
                     <video
                         ref={videoRef}
                         className="intro-video"
@@ -82,7 +82,7 @@ export default function Intro({ onComplete }) {
                         onError={handleVideoEnd}
                     />
 
-                    {/* 🎵 Background Intro Audio */}
+                    
                     <audio
                         ref={audioRef}
                         src="/intro-sound.mp3"
