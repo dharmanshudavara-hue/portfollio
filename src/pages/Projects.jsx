@@ -28,7 +28,7 @@ const PROJECTS = [
     },
 ];
 
-/* ========================= PROJECTS PAGE ========================= */
+/*  PROJECTS PAGE  */
 export default function Projects() {
     return (
         <>
@@ -40,7 +40,7 @@ export default function Projects() {
     );
 }
 
-/* ========================= NAV ========================= */
+/*  NAV  */
 const Nav = () => {
     return (
         <nav className="nav">
@@ -54,7 +54,7 @@ const Nav = () => {
     );
 };
 
-/* ========================= PROJECTS HERO ========================= */
+/*  PROJECTS HERO  */
 const ProjectsHero = () => {
     return (
         <div
@@ -103,7 +103,7 @@ const CenterImage = () => {
     );
 };
 
-/* ========================= PARALLAX PROJECT IMAGES ========================= */
+/*  PARALLAX PROJECT IMAGES  */
 const ParallaxProjectImages = () => {
     return (
         <div className="parallax-container">
@@ -158,7 +158,7 @@ const ParallaxImg = ({ className, alt, src, start, end, link }) => {
     );
 };
 
-/* ========================= PROJECTS LIST ========================= */
+/*  PROJECTS LIST  */
 const ProjectsList = () => {
     return (
         <section id="projects-list" className="projects-section">
@@ -219,7 +219,7 @@ const ProjectCard = ({ project, index }) => {
     );
 };
 
-/* ========================= FOOTER ========================= */
+/*  FOOTER  */
 const Footer = () => {
     return (
         <footer className="footer">
