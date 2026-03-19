@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
+import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import ContactMe from "./pages/ContactMe.jsx";
@@ -41,6 +42,7 @@ export default function App() {
                     </Routes>
                 </div>
             )}
+            <Analytics />
         </BrowserRouter>
     );
 }
