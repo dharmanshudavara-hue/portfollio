@@ -10,6 +10,7 @@ import { FiArrowRight } from "react-icons/fi";
 import DrawOutlineButton from "../components/DrawOutlineButton.jsx";
 import { AnimatedText } from "../components/ui/AnimatedText.jsx";
 
+
 const SECTION_HEIGHT = 1500;
 
 /*  HOME PAGE  */

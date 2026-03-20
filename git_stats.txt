@@ -1,0 +1,91 @@
+interactive rebase in progress; onto da6abc4
+Last command done (1 command done):
+   pick d5d4cdf Add The Gallery section with FlyingPosters WebGL component and Lightbox feature
+Next command to do (1 remaining command):
+   pick 2cc31a5 Update .gitignore and README with new project features
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'main' on 'da6abc4'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   package-lock.json
+	modified:   package.json
+	new file:   public/32539.jpg.jpeg
+	new file:   public/37543.jpg.jpeg
+	new file:   public/39196.jpg.jpeg
+	new file:   public/45125.jpg.jpeg
+	new file:   public/45345.jpg.jpeg
+	new file:   public/47354.jpg.jpeg
+	new file:   public/52695.jpg.jpeg
+	new file:   public/54041.jpg.jpeg
+	new file:   public/56262.jpg.jpeg
+	new file:   public/56531.jpg.jpeg
+	new file:   public/56670.jpg.jpeg
+	new file:   public/56900.jpg.jpeg
+	new file:   public/57188.jpg.jpeg
+	new file:   public/57333.jpg.jpeg
+	new file:   public/58042.jpg.jpeg
+	new file:   public/58450.jpg.jpeg
+	new file:   public/58608.jpg.jpeg
+	new file:   public/66750.jpg.jpeg
+	new file:   public/68742.png
+	new file:   public/69623.jpg.jpeg
+	new file:   public/75303.jpg.jpeg
+	new file:   public/79849.jpg.jpeg
+	new file:   public/79877.jpg.jpeg
+	new file:   public/80006.jpg.jpeg
+	new file:   public/81966.jpg.jpeg
+	new file:   public/81973.jpg.jpeg
+	new file:   public/82268.jpg.jpeg
+	new file:   src/components/FlyingPosters.css
+	new file:   src/components/FlyingPosters.jsx
+	new file:   src/components/ui/src_components_ui_neon-flow.jsx
+	modified:   src/index.css
+	modified:   src/pages/Home.jsx
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+	both modified:   index.html
+	both modified:   src/pages/Projects.jsx
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/32539.jpg.jpeg
+	deleted:    public/37543.jpg.jpeg
+	deleted:    public/39196.jpg.jpeg
+	deleted:    public/45125.jpg.jpeg
+	deleted:    public/45345.jpg.jpeg
+	deleted:    public/47354.jpg.jpeg
+	deleted:    public/52695.jpg.jpeg
+	deleted:    public/54041.jpg.jpeg
+	deleted:    public/56262.jpg.jpeg
+	deleted:    public/56531.jpg.jpeg
+	deleted:    public/56670.jpg.jpeg
+	deleted:    public/56900.jpg.jpeg
+	deleted:    public/57188.jpg.jpeg
+	deleted:    public/57333.jpg.jpeg
+	deleted:    public/58042.jpg.jpeg
+	deleted:    public/58450.jpg.jpeg
+	deleted:    public/58608.jpg.jpeg
+	deleted:    public/66750.jpg.jpeg
+	deleted:    public/68742.png
+	deleted:    public/69623.jpg.jpeg
+	deleted:    public/75303.jpg.jpeg
+	deleted:    public/79849.jpg.jpeg
+	deleted:    public/79877.jpg.jpeg
+	deleted:    public/80006.jpg.jpeg
+	deleted:    public/81966.jpg.jpeg
+	deleted:    public/81973.jpg.jpeg
+	deleted:    public/82268.jpg.jpeg
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	build_output.txt
+	git_stats.txt
+	public/edudiary.png
+

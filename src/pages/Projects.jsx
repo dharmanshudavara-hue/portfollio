@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
     motion,
@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { FiArrowLeft, FiArrowUpRight, FiExternalLink } from "react-icons/fi";
 import DrawOutlineButton from "../components/DrawOutlineButton.jsx";
+import FlyingPosters from "../components/FlyingPosters.jsx";
 
 const SECTION_HEIGHT = 1500;
 
@@ -26,6 +27,13 @@ const PROJECTS = [
         link: "https://airpods-frontend.vercel.app/",
         tech: "React • Framer Motion • CSS",
     },
+    {
+        title: "eduDiary",
+        subtitle: "Attendance Tracking Platform",
+        image: "/edudiary.png",
+        link: "https://edudiary.vercel.app/",
+        tech: "Web Application • React • Node.js",
+    },
 ];
 
 /*  PROJECTS PAGE  */
@@ -35,6 +43,7 @@ export default function Projects() {
             <Nav />
             <ProjectsHero />
             <ProjectsList />
+            <GallerySection />
             <Footer />
         </>
     );
@@ -122,6 +131,14 @@ const ParallaxProjectImages = () => {
                 end={-250}
                 className="parallax-img parallax-img-2"
                 link="https://airpods-frontend.vercel.app/"
+            />
+            <ParallaxImg
+                src="/edudiary.png"
+                alt="EduDiary Platform"
+                start={-200}
+                end={200}
+                className="parallax-img parallax-img-3"
+                link="https://edudiary.vercel.app/"
             />
         </div>
     );
@@ -219,7 +236,56 @@ const ProjectCard = ({ project, index }) => {
     );
 };
 
-/*  FOOTER  */
+
+/* ========================= GALLERY SECTION ========================= */
+const GallerySection = () => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const images = [
+        "/32539.jpg.jpeg", "/37543.jpg.jpeg", "/39196.jpg.jpeg", "/45125.jpg.jpeg",
+        "/45345.jpg.jpeg", "/47354.jpg.jpeg", "/52695.jpg.jpeg", "/54041.jpg.jpeg",
+        "/56262.jpg.jpeg", "/56531.jpg.jpeg", "/56670.jpg.jpeg", "/56900.jpg.jpeg",
+        "/57188.jpg.jpeg", "/57333.jpg.jpeg", "/58042.jpg.jpeg", "/58450.jpg.jpeg",
+        "/58608.jpg.jpeg", "/66750.jpg.jpeg", "/69623.jpg.jpeg", "/75303.jpg.jpeg",
+        "/79849.jpg.jpeg", "/79877.jpg.jpeg", "/80006.jpg.jpeg", "/81966.jpg.jpeg",
+        "/81973.jpg.jpeg", "/82268.jpg.jpeg"
+    ];
+
+    return (
+        <section id="the-gallery" className="gallery-section" style={{ padding: "100px 0", backgroundColor: "#000000ff" }}>
+            <motion.h1
+                initial={{ y: 48, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="projects-title"
+                style={{ textAlign: "center", marginBottom: "50px" }}
+            >
+                The <span>Gallery</span>
+            </motion.h1>
+            <div style={{ height: "100vh", width: "100%" }}>
+                <FlyingPosters items={images} onItemClick={(index) => setSelectedImage(images[index])} />
+            </div>
+
+            {selectedImage && (
+                <div
+                    className="lightbox-overlay"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="lightbox-content"
+                    >
+                        <img src={selectedImage} alt="Preview" />
+                        <button className="lightbox-close">✕</button>
+                    </motion.div>
+                </div>
+            )}
+        </section>
+    );
+};
+
+/* ========================= FOOTER ========================= */
 const Footer = () => {
     return (
         <footer className="footer">

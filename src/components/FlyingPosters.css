@@ -1,0 +1,29 @@
+.posters-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: grab;
+}
+
+.posters-container:active {
+  cursor: grabbing;
+}
+
+.posters-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* Optional: Add a loading state */
+.loading .posters-container {
+  opacity: 0;
+}
+
+.loaded .posters-container {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
