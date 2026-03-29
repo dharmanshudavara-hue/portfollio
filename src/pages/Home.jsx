@@ -9,7 +9,7 @@ import {
 import { FiArrowRight } from "react-icons/fi";
 import DrawOutlineButton from "../components/DrawOutlineButton.jsx";
 import { AnimatedText } from "../components/ui/AnimatedText.jsx";
-
+import AboutMe from "./AboutMe.jsx";
 
 const SECTION_HEIGHT = 1500;
 
@@ -20,6 +20,7 @@ export default function Home() {
             <Nav />
             <Hero />
             <Skills />
+            <AboutMe />
             <Footer />
         </>
     );
@@ -33,9 +34,6 @@ const Nav = () => {
                 Port<span>folio</span>
             </a>
             <div style={{ display: 'flex', gap: '16px' }}>
-                <DrawOutlineButton to="/about">
-                    ABOUT ME <FiArrowRight />
-                </DrawOutlineButton>
                 <DrawOutlineButton to="/projects">
                     MY PROJECTS <FiArrowRight />
                 </DrawOutlineButton>

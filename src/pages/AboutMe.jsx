@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiArrowLeft } from "react-icons/fi";
-import DrawOutlineButton from "../components/DrawOutlineButton.jsx";
 import { AnimatedText } from "../components/ui/AnimatedText.jsx";
 import "./AboutMe.css";
 
@@ -27,7 +25,7 @@ const AboutMe = () => {
     };
 
     return (
-        <section className="about-section">
+        <section id="about-me" className="about-section">
             <div className="about-background-blob" />
             
             <motion.div 
@@ -36,12 +34,6 @@ const AboutMe = () => {
                 initial="hidden"
                 animate="visible"
             >
-                <div className="back-btn-wrapper">
-                    <DrawOutlineButton to="/">
-                        <FiArrowLeft /> BACK TO HOME
-                    </DrawOutlineButton>
-                </div>
-
                 <motion.div variants={itemVariants}>
                     <AnimatedText text="About Me" textClassName="about-title" />
                 </motion.div>
