@@ -33,11 +33,14 @@ const Nav = () => {
                 Port<span>folio</span>
             </a>
             <div style={{ display: 'flex', gap: '16px' }}>
-                <DrawOutlineButton to="/contact">
-                    CONTACT <FiArrowRight />
+                <DrawOutlineButton to="/about">
+                    ABOUT ME <FiArrowRight />
                 </DrawOutlineButton>
                 <DrawOutlineButton to="/projects">
                     MY PROJECTS <FiArrowRight />
+                </DrawOutlineButton>
+                <DrawOutlineButton to="/contact">
+                    CONTACT <FiArrowRight />
                 </DrawOutlineButton>
             </div>
         </nav>
