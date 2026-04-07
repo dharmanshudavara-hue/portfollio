@@ -32,7 +32,7 @@ const ContactMe = () => {
                     heading="Instagram"
                     subheading="Life & Behind the Scenes"
                     imgSrc="/Instagram.png"
-                    href="https://www.instagram.com/dharmanshu_davara04/"
+                    href="https://www.instagram.com/cone._/"
                 />
                 <Link
                     heading="Mail"
