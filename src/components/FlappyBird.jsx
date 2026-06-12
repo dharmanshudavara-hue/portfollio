@@ -175,18 +175,18 @@ function drawBackground(ctx, canvasW, canvasH, stars, offset) {
   });
   ctx.globalAlpha = 1;
 
-  // Distant city silhouette parallax
+  // Distant city silhouette (Still)
   ctx.fillStyle = "rgba(15, 25, 40, 0.8)";
   const cityY = canvasH - GROUND_HEIGHT - 40;
-  for (let cx = ((-offset * 0.15) % 800 + 800) % 800 - 100; cx < canvasW + 100; cx += 30 + Math.sin(cx * 0.1) * 10) {
+  for (let cx = -100; cx < canvasW + 100; cx += 30 + Math.sin(cx * 0.1) * 10) {
     const bh = 15 + Math.abs(Math.sin(cx * 0.05)) * 30;
     const bw = 10 + Math.abs(Math.cos(cx * 0.07)) * 14;
     ctx.fillRect(cx, cityY - bh, bw, bh + 40);
   }
 
-  // Closer silhouette
+  // Closer silhouette (Still)
   ctx.fillStyle = "rgba(10, 18, 30, 0.9)";
-  for (let cx = ((-offset * 0.3) % 600 + 600) % 600 - 80; cx < canvasW + 80; cx += 40 + Math.sin(cx * 0.08) * 15) {
+  for (let cx = -80; cx < canvasW + 80; cx += 40 + Math.sin(cx * 0.08) * 15) {
     const bh = 20 + Math.abs(Math.sin(cx * 0.03 + 1)) * 45;
     const bw = 14 + Math.abs(Math.cos(cx * 0.05 + 2)) * 16;
     ctx.fillRect(cx, cityY - bh, bw, bh + 40);
