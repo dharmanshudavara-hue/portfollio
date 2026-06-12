@@ -524,6 +524,440 @@ body {
   height: 100%;
 }
 
+/* ===== ARCADE SECTION ===== */
+.arcade-section {
+  background-color: #09090b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.arcade-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 24px 60px;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.arcade-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fafaf9;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.arcade-title span {
+  background: linear-gradient(135deg, #32cd32, #adff2f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.arcade-subtitle {
+  font-size: 0.9rem;
+  color: #71717a;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+.arcade-game-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.arcade-game-border {
+  position: relative;
+  border-radius: 16px;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(50, 205, 50, 0.4), rgba(173, 255, 47, 0.15), rgba(50, 205, 50, 0.4));
+  box-shadow:
+    0 0 30px rgba(50, 205, 50, 0.15),
+    0 0 60px rgba(50, 205, 50, 0.05),
+    inset 0 0 20px rgba(50, 205, 50, 0.05);
+}
+
+.flappy-game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #09090b;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.flappy-canvas {
+  display: block;
+  border-radius: 13px 13px 0 0;
+  cursor: pointer;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.flappy-hud {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 14px 24px;
+  width: 100%;
+  background: rgba(15, 15, 20, 0.95);
+  border-top: 1px solid rgba(50, 205, 50, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.flappy-hud-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.flappy-hud-label {
+  font-family: 'Inter', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #52525b;
+}
+
+.flappy-hud-value {
+  font-family: 'Outfit', monospace;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(50, 205, 50, 0.4);
+}
+
+.flappy-hud-best {
+  color: #adff2f;
+}
+
+.arcade-controls-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #52525b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.arcade-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-family: 'Inter', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #a1a1aa;
+  background: rgba(39, 39, 42, 0.6);
+  border: 1px solid rgba(63, 63, 70, 0.6);
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.arcade-hint-text {
+  color: #3f3f46;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .arcade-content {
+    padding: 80px 16px 40px;
+  }
+
+  .arcade-subtitle {
+    margin-bottom: 24px;
+    font-size: 0.8rem;
+  }
+
+  .arcade-controls-hint {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+
+/* ===== ARCADE HUB MENU ===== */
+.arcade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.arcade-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(39, 39, 42, 0.6);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  aspect-ratio: 16/10;
+}
+
+.arcade-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.arcade-card:hover {
+  border-color: rgba(50, 205, 50, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(50, 205, 50, 0.2);
+}
+
+.arcade-card:hover img {
+  transform: scale(1.05);
+}
+
+.arcade-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.9), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.arcade-card-overlay h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fafaf9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.arcade-active-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.arcade-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid rgba(161, 161, 170, 0.3);
+  color: #a1a1aa;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.arcade-back-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== NEON BEATMAKER ===== */
+.beatmaker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #0f0f13;
+  border: 1px solid rgba(50, 205, 50, 0.2);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 0 40px rgba(50, 205, 50, 0.05);
+  width: 100%;
+  max-width: 900px;
+}
+
+.beatmaker-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.beatmaker-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.play-btn {
+  background: #32cd32;
+  color: #09090b;
+  box-shadow: 0 0 15px rgba(50, 205, 50, 0.4);
+}
+
+.play-btn:hover {
+  background: #3ddc3d;
+  box-shadow: 0 0 25px rgba(50, 205, 50, 0.6);
+  transform: translateY(-2px);
+}
+
+.clear-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.bpm-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.bpm-control label {
+  font-family: 'Inter', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+
+.bpm-control input[type="range"] {
+  accent-color: #32cd32;
+  width: 150px;
+}
+
+.beatmaker-grid-wrapper {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.beatmaker-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.beatmaker-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 36px;
+  font-family: 'Inter', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #71717a;
+  text-transform: uppercase;
+  padding-right: 8px;
+  border-right: 2px solid rgba(50, 205, 50, 0.3);
+}
+
+.beatmaker-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.beatmaker-row {
+  display: flex;
+  gap: 6px;
+}
+
+.beatmaker-cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.beatmaker-cell.beat-marker {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.beatmaker-cell:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.beatmaker-cell.active {
+  background: #32cd32;
+  border-color: #adff2f;
+  box-shadow: 0 0 12px rgba(50, 205, 50, 0.5), inset 0 0 8px rgba(173, 255, 47, 0.8);
+}
+
+.beatmaker-cell.current {
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.beatmaker-cell.active.current {
+  background: #ffffff;
+  box-shadow: 0 0 20px #ffffff, 0 0 30px #32cd32;
+}
+
+@media (max-width: 768px) {
+  .beatmaker-container {
+    padding: 16px;
+  }
+  
+  .beatmaker-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .beatmaker-cell {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .beatmaker-label {
+    height: 28px;
+    font-size: 0.65rem;
+  }
+}
+
 /* ===== FOOTER ===== */
 .footer {
   text-align: center;

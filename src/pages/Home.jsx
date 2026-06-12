@@ -37,6 +37,9 @@ const Nav = () => {
                 <DrawOutlineButton to="/projects">
                     MY PROJECTS <FiArrowRight />
                 </DrawOutlineButton>
+                <DrawOutlineButton to="/arcade">
+                    ARCADE <FiArrowRight />
+                </DrawOutlineButton>
                 <DrawOutlineButton to="/contact">
                     CONTACT <FiArrowRight />
                 </DrawOutlineButton>

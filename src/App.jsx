@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import ContactMe from "./pages/ContactMe.jsx";
+import Arcade from "./pages/Arcade.jsx";
 import Intro from "./components/Intro.jsx";
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/contact" element={<ContactMe />} />
+                        <Route path="/arcade" element={<Arcade />} />
                     </Routes>
                 </div>
             )}
