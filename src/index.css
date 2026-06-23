@@ -115,7 +115,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background-color: #000;
+  background-color: #fefcff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1006,6 +1006,7 @@ body {
   border-color: #adff2f;
   box-shadow: 0 0 12px rgba(50, 205, 50, 0.5), inset 0 0 8px rgba(173, 255, 47, 0.8);
 }
+
 .beatmaker-cell.color-green.active.current {
   background: #ffffff;
   box-shadow: 0 0 20px #ffffff, 0 0 30px #32cd32;
@@ -1016,6 +1017,7 @@ body {
   border-color: #ffb3ff;
   box-shadow: 0 0 12px rgba(255, 0, 255, 0.5), inset 0 0 8px rgba(255, 179, 255, 0.8);
 }
+
 .beatmaker-cell.color-pink.active.current {
   background: #ffffff;
   box-shadow: 0 0 20px #ffffff, 0 0 30px #ff00ff;
@@ -1026,6 +1028,7 @@ body {
   border-color: #b3faff;
   box-shadow: 0 0 12px rgba(0, 229, 255, 0.5), inset 0 0 8px rgba(179, 250, 255, 0.8);
 }
+
 .beatmaker-cell.color-blue.active.current {
   background: #ffffff;
   box-shadow: 0 0 20px #ffffff, 0 0 30px #00e5ff;
@@ -1035,17 +1038,17 @@ body {
   .beatmaker-container {
     padding: 16px;
   }
-  
+
   .beatmaker-controls {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .beatmaker-cell {
     width: 28px;
     height: 28px;
   }
-  
+
   .beatmaker-label {
     height: 28px;
     font-size: 0.65rem;
@@ -1295,4 +1298,4 @@ body {
   .lightbox-overlay {
     padding: 10px;
   }
-}
+}
