@@ -52,6 +52,7 @@ export default function Arcade() {
                                         <h3>Neon Beatmaker</h3>
                                     </div>
                                 </div>
+
                             </div>
                         </motion.div>
                     ) : (
@@ -89,6 +90,8 @@ export default function Arcade() {
                                     <Beatmaker />
                                 </div>
                             )}
+
+
                         </motion.div>
                     )}
                 </AnimatePresence>

@@ -33,6 +33,13 @@ const PROJECTS = [
         link: "https://edudiary.vercel.app/",
         tech: "Web Application • React • Node.js",
     },
+    {
+        title: "HisaabBot",
+        subtitle: "Voise-first Finance tracking App",
+        image: "/hisaabbot.png",
+        link: "https://hisaabbot.vercel.app/",
+        tech: "Web Application • Web Speech • Next.js",
+    },
 ];
 
 /*  PROJECTS PAGE  */
@@ -137,6 +144,14 @@ const ParallaxProjectImages = () => {
                 end={200}
                 className="parallax-img parallax-img-3"
                 link="https://edudiary.vercel.app/"
+            />
+            <ParallaxImg
+                src="/hisaabbot.png"
+                alt="HisaabBot Platform"
+                start={200}
+                end={-250}
+                className="parallax-img parallax-img-4"
+                link="https://hisaabbot.vercel.app/"
             />
         </div>
     );

@@ -114,7 +114,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999;
+  z-index: 0;
   background-color: #fefcff;
   display: flex;
   justify-content: center;
@@ -125,7 +125,7 @@ body {
   width: 100%;
   max-width: 1200px;
   border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  /* box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0); */
 }
 
 .intro-start-btn {
@@ -415,7 +415,7 @@ body {
 }
 
 .project-card:hover .project-card-arrow {
-  color: #a855f7;
+  color: #5be64f;
   transform: translate(2px, -2px);
 }
 
@@ -1052,6 +1052,582 @@ body {
   .beatmaker-label {
     height: 28px;
     font-size: 0.65rem;
+  }
+}
+
+/* ===== HARMONIUM & TABLA ===== */
+.ht-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(145deg, #0f0f13 0%, #12100e 100%);
+  border: 1px solid rgba(232, 168, 56, 0.2);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow:
+    0 0 40px rgba(232, 168, 56, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.ht-visualizer {
+  width: 100%;
+  height: 50px;
+  background: #0a0a0d;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ht-main-layout {
+  display: flex;
+  gap: 24px;
+  min-height: 280px;
+}
+
+.ht-section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E8A838;
+  margin-bottom: 16px;
+}
+
+/* ─── Tabla ──────────────────────────────────────────── */
+.ht-tabla-section {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ht-tabla-pair {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.ht-tabla-drum {
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ht-bayan {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 40% 35%, #5a4a3a 0%, #3a2e22 40%, #2a1f15 70%, #1a1410 100%);
+  border: 2px solid rgba(180, 140, 90, 0.3);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 2px 8px rgba(180, 140, 90, 0.15);
+}
+
+.ht-dayan {
+  width: 105px;
+  height: 105px;
+  background: radial-gradient(circle at 40% 35%, #8a7260 0%, #6a5545 40%, #4a3a2a 70%, #2a1f15 100%);
+  border: 2px solid rgba(200, 160, 110, 0.3);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 2px 8px rgba(200, 160, 110, 0.15);
+}
+
+.ht-drum-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ht-drum-ring-outer {
+  inset: 4px;
+  border: 1px solid rgba(200, 160, 100, 0.15);
+}
+
+.ht-drum-ring-mid {
+  inset: 15px;
+  border: 1px solid rgba(200, 160, 100, 0.1);
+}
+
+.ht-drum-ring-inner {
+  inset: 28px;
+  border: 1px solid rgba(200, 160, 100, 0.08);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.ht-tabla-zone {
+  position: relative;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 168, 56, 0.25);
+  background: rgba(232, 168, 56, 0.08);
+  color: #E8A838;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: 'Outfit', sans-serif;
+  padding: 0;
+}
+
+.ht-tabla-zone:hover {
+  background: rgba(232, 168, 56, 0.18);
+  border-color: rgba(232, 168, 56, 0.5);
+  transform: scale(1.1);
+}
+
+.ht-zone-active {
+  background: rgba(232, 168, 56, 0.45) !important;
+  border-color: #E8A838 !important;
+  box-shadow: 0 0 20px rgba(232, 168, 56, 0.6), 0 0 40px rgba(232, 168, 56, 0.2);
+  transform: scale(0.95) !important;
+  animation: ht-ripple 0.3s ease-out;
+}
+
+@keyframes ht-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(232, 168, 56, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 15px rgba(232, 168, 56, 0), 0 0 20px rgba(232, 168, 56, 0.3);
+  }
+}
+
+.ht-zone-name {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.ht-zone-key {
+  font-size: 0.45rem;
+  font-weight: 500;
+  opacity: 0.5;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.ht-tabla-legend {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ht-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ht-legend-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-family: 'Inter', monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  background: rgba(39, 39, 42, 0.6);
+  border: 1px solid rgba(63, 63, 70, 0.6);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ht-legend-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  color: #71717a;
+  font-weight: 500;
+}
+
+/* ─── Harmonium ──────────────────────────────────────── */
+.ht-harmonium-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ht-harmonium-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #1a1510 0%, #14110d 100%);
+  border: 1px solid rgba(180, 140, 90, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(180, 140, 90, 0.1);
+}
+
+.ht-bellows-decor {
+  display: flex;
+  gap: 0;
+  height: 12px;
+  background: linear-gradient(90deg, #D4761E, #E8A838, #D4761E, #E8A838, #D4761E);
+  opacity: 0.6;
+}
+
+.ht-bellows-fold {
+  flex: 1;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  background: repeating-linear-gradient(90deg,
+      rgba(212, 118, 30, 0.3) 0px,
+      rgba(232, 168, 56, 0.2) 4px,
+      rgba(212, 118, 30, 0.3) 8px);
+}
+
+.ht-keyboard-wrapper {
+  padding: 16px 12px 20px;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.ht-keyboard {
+  position: relative;
+  display: flex;
+  flex: 1;
+  gap: 2px;
+}
+
+/* White Keys */
+.ht-key-white {
+  flex: 1;
+  min-width: 0;
+  height: 180px;
+  background: linear-gradient(180deg, #f8f6f0 0%, #e8e4da 60%, #d8d2c6 100%);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 6px 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  gap: 4px;
+  transition: all 0.08s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.ht-key-white:hover {
+  background: linear-gradient(180deg, #fffdf5 0%, #f0ece2 60%, #e0dcd0 100%);
+}
+
+.ht-key-white.ht-key-pressed {
+  background: linear-gradient(180deg, #E8A838 0%, #D4761E 60%, #c06a1a 100%);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(232, 168, 56, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(2px);
+}
+
+.ht-key-white.ht-key-pressed .ht-key-label {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.ht-key-white.ht-key-pressed .ht-key-bind {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Black Keys */
+.ht-key-black {
+  position: absolute;
+  top: 0;
+  width: calc(100% / 10 * 0.6);
+  height: 110px;
+  background: linear-gradient(180deg, #2a2520 0%, #1a1815 60%, #0f0d0b 100%);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 4px 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+  gap: 2px;
+  z-index: 3;
+  transition: all 0.08s ease;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ht-key-black:hover {
+  background: linear-gradient(180deg, #3a3530 0%, #2a2520 60%, #1a1815 100%);
+}
+
+.ht-key-black.ht-key-pressed {
+  background: linear-gradient(180deg, #D4761E 0%, #b5600e 60%, #8a4a0a 100%);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(212, 118, 30, 0.5),
+    inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  transform: translateY(2px);
+  height: 108px;
+}
+
+.ht-key-black.ht-key-pressed .ht-key-label {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+.ht-key-black.ht-key-pressed .ht-key-bind {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ht-key-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #3a3530;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ht-key-black .ht-key-label {
+  color: #a09080;
+  font-size: 0.55rem;
+}
+
+.ht-key-bind {
+  font-family: 'Inter', monospace;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #a09080;
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ht-key-black .ht-key-bind {
+  color: #706050;
+}
+
+/* ─── Controls ───────────────────────────────────────── */
+.ht-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.ht-ctrl-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #a1a1aa;
+}
+
+.ht-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fafafa;
+}
+
+.ht-ctrl-active {
+  background: rgba(232, 168, 56, 0.2) !important;
+  color: #E8A838 !important;
+  border-color: rgba(232, 168, 56, 0.5) !important;
+  box-shadow: 0 0 12px rgba(232, 168, 56, 0.2);
+}
+
+.ht-ctrl-small {
+  padding: 6px 8px;
+  font-size: 0.9rem;
+}
+
+.ht-ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ht-ctrl-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ht-ctrl-value {
+  font-family: 'Outfit', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #E8A838;
+  min-width: 24px;
+  text-align: center;
+}
+
+.ht-ctrl-icon {
+  color: #71717a;
+  font-size: 1rem;
+}
+
+.ht-volume-slider {
+  accent-color: #E8A838;
+  width: 100px;
+}
+
+/* ─── Keyboard Guide ─────────────────────────────────── */
+.ht-keyboard-guide {
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.ht-guide-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  color: #52525b;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+.ht-guide-text strong {
+  color: #71717a;
+}
+
+/* ─── Harmonium-Tabla Responsive ─────────────────────── */
+@media (max-width: 768px) {
+  .ht-container {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .ht-main-layout {
+    flex-direction: column;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  .ht-tabla-section {
+    flex: none;
+  }
+
+  .ht-tabla-pair {
+    justify-content: center;
+  }
+
+  .ht-bayan {
+    width: 100px;
+    height: 100px;
+  }
+
+  .ht-dayan {
+    width: 90px;
+    height: 90px;
+  }
+
+  .ht-tabla-zone {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ht-key-white {
+    height: 140px;
+  }
+
+  .ht-key-black {
+    height: 85px;
+  }
+
+  .ht-key-black.ht-key-pressed {
+    height: 83px;
+  }
+
+  .ht-controls {
+    gap: 12px;
+  }
+
+  .ht-volume-slider {
+    width: 70px;
+  }
+
+  .ht-keyboard-guide {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ht-bayan {
+    width: 85px;
+    height: 85px;
+  }
+
+  .ht-dayan {
+    width: 75px;
+    height: 75px;
+  }
+
+  .ht-tabla-zone {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ht-zone-name {
+    font-size: 0.45rem;
+  }
+
+  .ht-key-white {
+    height: 120px;
+  }
+
+  .ht-key-black {
+    height: 70px;
+  }
+
+  .ht-key-label {
+    font-size: 0.5rem;
   }
 }
 
